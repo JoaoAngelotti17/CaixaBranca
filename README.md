@@ -1,23 +1,16 @@
-# Análise de Código - Classe `User`
+# ETAPA 3 
 
-Este documento apresenta uma análise de possíveis erros  para a classe `User`.
+Este documento apresenta o grafo de fluxo, o cálculo da complexidade ciclomática e a quantidade de caminhos possíveis traçados.
 
-## 1. Erros e Melhorias
+### Complexidade Ciclomática
+M = E − N + 2P
+M = 18 - 16 + 2(1)
+M = 4
+Após o cálculo da complexidade ciclomática, podemos concluir que há 4 caminhos possíveis para realizar.
 
-### 1.1 Tratamento de Exceções
-O código apresenta a ausência de mensagens para tratamento de exceções, o que dificulta o diagnóstico de falhas. Para melhorar, é recomendável adicionar logs ou exibições de mensagens detalhadas nos blocos `catch`, como `e.printStackTrace()`.
+### Quantidade de Caminhos
+<b>Primeiro Caminho:<b> 1-2-3-4-5-7-8-9-10-11-12-14-16
+<b>Segundo Caminho:<b> 1-2-3-4-6-7-8-9-10-11-12-14-16
+<b>Terceiro Caminho:<b> 1-2-3-4-6-7-8-9-15-16
+<b>Quarto Caminho:<b> 1-2-3-4-5-7-8-9-15-16
 
-### 1.2 Driver JDBC Incorreto
-O uso do método `Class.forName("com.mysql.DriverManager")` está incorreto. O correto seria `Class.forName("com.mysql.cj.jdbc.Driver")`, que é o driver adequado para conexões MySQL a partir da versão 5.1.
-
-### 1.3 Falta de Fechamento da Conexão
-O código não fecha a conexão com o banco de dados após o uso, o que pode causar vazamento de recursos. Para evitar isso, é aconselhável utilizar o recurso `try-with-resources` ou garantir o fechamento da conexão em um bloco `finally`.
-
-### 1.4 Validação de Entradas
-O código não valida as entradas dos parâmetros `login` e `senha`, o que pode permitir o envio de valores inválidos ou maliciosos. Para resolver isso, é necessário validar as entradas antes de processá-las, garantindo que não sejam nulas ou vazias.
-
-### 1.5 Tratamento de Conexão Nula
-Não há um tratamento adequado para o caso de a conexão com o banco não ser estabelecida corretamente. 
-
-### 1.6 Inicialização da Variável `nome`
-A variável `nome`, que armazena o nome do usuário retornado pela consulta SQL, pode não ser inicializada caso a consulta não retorne nenhum resultado, o que pode causar problemas em outras partes do código.

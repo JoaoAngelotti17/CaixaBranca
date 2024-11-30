@@ -36,6 +36,7 @@ public class User {
                 result = true;
                 nome = rs.getString("nome");
             }
+
         } catch (Exception e) {
         }
         return result;
