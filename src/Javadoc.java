@@ -10,7 +10,7 @@ import java.sql.Statement;
  * <p>A classe conecta-se a um banco de dados MySQL e verifica se o usuário e 
  * senha existem no banco.</p>
  * 
- * @author João Vitor Amaral Franzoni
+ * @author João Pedro Timo Angelotti Pinto
  * @version 1.0
  */
 
